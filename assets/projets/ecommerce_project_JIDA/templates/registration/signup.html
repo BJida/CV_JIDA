@@ -1,0 +1,32 @@
+{% extends "store/base.html" %}
+{% block content %}
+<h1>Inscription</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div>
+    <label for="id_username">Nom d’utilisateur :</label>
+    {{ form.username }}
+  </div>
+  <div>
+    <label for="id_email">Email :</label>
+    {% comment %} {{ form.email }} {% endcomment %}
+    <input type="email" name="id_email" id="id_email">
+  </div>
+  <div>
+    <label for="id_password1">Mot de passe :</label>
+    {{ form.password1 }}
+  </div>
+  <div>
+    <label for="id_password2">Confirmez le mot de passe :</label>
+    {{ form.password2 }}
+  </div>
+  <button type="submit">Créer le compte</button>
+</form>
+
+<p>
+  Vous avez déjà un compte ? <a href="{% url 'signin' %}">Connectez‑vous</a>
+</p>
+{% endblock %}
+

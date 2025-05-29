@@ -1,0 +1,44 @@
+{% extends "store/base.html" %}
+
+{% block content %}
+
+<h1>Votre panier</h1>
+
+{% if order.items.exists %}
+<table>
+  <thead>
+    <tr>
+      <th>Produit</th>
+      <th>Qté</th>
+      <th>Prix unitaire</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in order.items.all %}
+    <tr>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.product.price }}€</td>
+      <td>{{ item.total_price }}€</td>
+      <td>
+        <a href="{% url 'remove_from_cart' item.product.id %}">❌</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p><strong>Total panier: {{ order.total_price }}€</strong></p>
+
+<a href="{% url 'checkout' %}" class="btn">Passer au paiement</a>
+
+{% else %}
+
+<p>Votre panier est vide.</p>
+
+{% endif %}
+
+
+{% endblock %}

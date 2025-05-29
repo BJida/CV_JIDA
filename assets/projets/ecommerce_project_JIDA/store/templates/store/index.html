@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h1>Produits</h1>
+<table>
+  <tr><th>Nom</th><th>prix</th><th>Image</th></tr>
+{% for product in products %}
+  <!-- <div> -->
+    <tr>
+    <td><h2><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></h2></td>
+    <td>{{ product.price }} €</td>
+    <td><img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width:200px;"></td>
+    <!-- <p>{{ product.price }} €</p> -->
+    </tr>
+  <!-- </div> -->
+{% endfor %}
+</table>
+{% endblock %}

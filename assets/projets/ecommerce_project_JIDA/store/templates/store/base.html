@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ma Boutique</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <nav>
+    <a href="{% url 'index' %}">Accueil</a>
+    <a href="{% url 'cart' %}">Panier</a>
+    {% if user.is_authenticated %}
+      Bonjour, {{ user.username }} | <a href="{% url 'logout' %}">Déconnexion</a>
+    {% else %}
+      <a href="{% url 'signin' %}">Connexion</a>
+    {% endif %}
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>

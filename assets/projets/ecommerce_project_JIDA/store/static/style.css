@@ -1,0 +1,55 @@
+/* --- Reset léger --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* --- Typo & layout de base --- */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  background: #f7f7f7;
+  color: #333;
+  padding: 0 1rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+a { color: #0077cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1 { margin: 1rem 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th { background: #fafafa; }
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #0077cc;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.btn:hover { background: #005fa3; }
+
+.product-detail img { max-width: 100%; margin-bottom: 1rem; }
+/* Messages Django (si tu utilises django.contrib.messages) */
+.message {
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+.message.error { background: #ffe6e6; color: #b30000; }
+.message.success { background: #e6ffed; color: #0b751b; }
